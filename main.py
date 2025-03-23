@@ -15,7 +15,8 @@ from starlette.staticfiles import StaticFiles
 app = FastAPI()
 
 # Get absolute path of the static directory
-BASE_DIR = os.path.dirname(os.path.abspath(_file_))
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
 STATIC_DIR = os.path.join(BASE_DIR, "static")
 
 # Debug: Print the absolute path
