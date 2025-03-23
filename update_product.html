@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Company Details</title>
+    <style>
+        body {
+            background-image: url('/static/2.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+
+        .form {
+            background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px); /* Add blur effect */
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+
+        input {
+            width: 80%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 16px;
+        }
+
+        input[type="submit"] {
+            background-color: rgb(218, 183, 8);
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            width: 84%;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: rgb(184, 154, 7); /* Darker shade for hover effect */
+        }
+
+        h1, h2 {
+            font-family: fantasy;
+            font-size: xx-large;
+            margin: 20px 0;
+            color: #333;
+        }
+
+        h1 {
+            font-size: xxx-large;
+            color: #d20f0f;
+        }
+
+        h1::before {
+            content: "";
+            display: block;
+            width: 80px;
+            height: 4px;
+            background-color: #d20f0f;
+            margin: 10px auto 20px;
+        }
+    </style>
+</head>
+<body>
+    <form action="/update_product/{{ product._id }}" method="post" class="form">
+        <h1>Welcome to Imran Autos</h1>
+        <h2>Update Products</h2>
+        <input type="text" name="productname" placeholder="Product name" id="productname" value="{{ product.productname }}"><br>
+        <input type="text" name="productdescription" placeholder="Product description" id="productdescription" value="{{ product.productdescription }}"><br>
+        <input type="number" name="price" placeholder="Product price" id="price" value="{{ product.price }}"><br>
+        <input type="submit" value="Update">
+    </form>
+</body>
+</html>

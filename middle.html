@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/9c076ec52a.js" crossorigin="anonymous"></script>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #c7a81d;
+            background-image: url("/static/image.jpg");
+            background-size: cover;
+        }
+        
+        #container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: stretch; /* Equal height */
+            width: 100%;
+        }
+
+        .card-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 10px;
+            max-width: 300px; /* Maximum width for each card container */
+            perspective: 1000px; /* 3D perspective */
+        }
+
+        .card {
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background: rgba(176, 240, 242, 0.7);
+            backdrop-filter: blur(0.5px); /* Blur effect */
+            width: 100%; /* Ensure content fills the container */
+            transform: rotateY(0);
+            transition: transform 0.3s;
+        }
+        
+        .card:hover {
+            transform: rotateY(10deg); /* Slight 3D tilt effect */
+        }
+        
+        .card i {
+            display: block;
+            font-size: 150px; /* Increased font size */
+            margin-bottom: 30px; /* Increased margin */
+            transition: transform 0.3s;
+        }
+        
+        .card:hover i {
+            transform: scale(1.1); /* Slightly enlarge icon on hover */
+        }
+        
+        .card button {
+            border: none;
+            outline: none;
+            padding: 15px 30px; /* Increased padding */
+            color: #fff;
+            background-color: #000;
+            font-size: 24px; /* Increased font size */
+            border-radius: 8px; /* Increased border radius */
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.3s;
+        }
+        
+        .card button:hover {
+            background-color: #333;
+            transform: translateY(-5px); /* Slight lift on hover */
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div class="card-container">
+            <div class="card">
+                <i class="fas fa-house fa-spin"></i>
+                <a href="/view_products1"><button>View Products</button></a>
+            </div>
+        </div>
+        
+        <div class="card-container">
+            <div class="card">
+                <i class="fas fa-edit fa-spin"></i>
+                <a href="/sale"><button>Add New Product</button></a>
+            </div>
+        </div>
+        
+        <div class="card-container">
+            <div class="card">
+                <i class="fas fa-sign-out-alt fa-spin"></i>
+                <a href="/logout"><button>Log Out</button></a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

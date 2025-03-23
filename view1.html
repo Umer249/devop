@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 20px;
+            background-image: url(/static/image.jpg);
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        h1 {
+            text-align: center;
+            color: #fafefe;
+            font-family:'Times New Roman', Times, serif;
+            font-size: 5em;
+            position: relative;
+            margin-bottom: 40px;
+        }
+
+        h1::before {
+            content: "";
+            position: absolute;
+            left: 50%;
+            bottom: -10px;
+            transform: translateX(-50%);
+            width: 60%;
+            height: 5px;
+            background-color: #d20f0f;
+            border-radius: 2px;
+        }
+
+        .card-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .card {
+            background-color: rgba(255, 255, 255, 0.9);
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            margin: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+            position: relative;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgb(185, 236, 251);
+            opacity: 0.1;
+            transition: opacity 0.3s ease;
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            background-color: rgba(255, 255, 255, 1);
+        }
+
+        .card-content {
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .card h2 {
+            margin: 0 0 10px;
+            color: #333;
+            font-size: 1.75em;
+            font-family: 'Georgia', serif;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .card:hover h2 {
+            color: #d20f0f;
+            transform: scale(1.1);
+        }
+
+        .card p {
+            color: #666;
+            margin: 5px 0;
+            font-family: 'Verdana', sans-serif;
+            transition: color 0.3s ease;
+        }
+
+        .card p strong {
+            color: #333;
+        }
+
+        .card:hover p {
+            color: #444;
+        }
+    </style>
+</head>
+<body>
+    <h1>Product Details</h1>
+    <div class="card-container">
+        {% for product in products %}
+        <div class="card">
+            <div class="card-content">
+                <h2>{{ product.productname }}</h2>
+                <p>{{ product.productdescription }}</p>
+                <p><strong>Price:</strong> ${{ product.price }}</p>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

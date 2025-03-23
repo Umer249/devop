@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Company Details</title>
+    <style>
+        body {
+            background-image: url('/static/2.jpg');
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+
+        .form {
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+            padding: 30px;
+            border-radius: 10px;
+            backdrop-filter: blur(0.2px); /* Add blur effect */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        input {
+            width: calc(100% - 40px);
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        input[type="submit"] {
+            background-color: rgb(218, 183, 8);
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            width: calc(100% - 36px);
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: rgb(184, 154, 7); /* Darker shade for hover effect */
+        }
+
+        h1, h2 {
+            text-align: center;
+            font-family: fantasy;
+            font-size: xx-large;
+            margin: 10px 0;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <form action="/add_product" method="post" class="form" onsubmit="return validateForm()">
+        <h1>Welcome to Imran Autos</h1>
+        <h2>Add New Products</h2>
+        <input type="text" name="productname" placeholder="Product name" id="productname"><br>
+        <input type="text" name="productdescription" placeholder="Product description" id="productdescription"><br>
+        <input type="text" name="price" placeholder="Product price" id="price"><br>
+        <input type="submit" value="Add Product">
+    </form>
+    <script>
+        function validateForm() {
+            const nameRegex = /^[a-zA-Z\s]+$/;
+            const priceRegex = /^[\d,]+$/;
+
+            const productName = document.getElementById('productname').value;
+            const productDescription = document.getElementById('productdescription').value;
+            const price = document.getElementById('price').value;
+
+            if (!nameRegex.test(productName)) {
+                alert("Product name must not contain numbers");
+                return false;
+            }
+
+            if (!nameRegex.test(productDescription)) {
+                alert("Product description must not contain numbers.");
+                return false;
+            }
+
+            if (!priceRegex.test(price)) {
+                alert("Price must only contain numbers or commas.");
+                return false;
+            }
+
+            return true;
+        }
+    </script>
+</body>
+</html>
